@@ -26,8 +26,7 @@ def get_roles(guild_id: Text) -> RoleRequest:
     需要使用的token对应的用户具备删除身份组权限。如果是机器人，要求被添加为管理员。
     """
     res = get(f"/guilds/{guild_id}/roles")
-    guild_info = RoleRequest(**res)
-    return guild_info
+    return RoleRequest(**res)
 
 
 def establish_roles(guild_id: Text, filter: Filter, info: Info) -> role_id:
@@ -43,8 +42,7 @@ def establish_roles(guild_id: Text, filter: Filter, info: Info) -> role_id:
         "info": info.dict(exclude_none=True)
     }
     res = post(f"/guilds/{guild_id}/roles", json=data)
-    role_id_obj = role_id(**res)
-    return role_id_obj
+    return role_id(**res)
 
 
 def modify_roles(guild_id: Text, role_id: Text, filter: Filter, info: Info) -> role_and_guild_id:
@@ -61,8 +59,7 @@ def modify_roles(guild_id: Text, role_id: Text, filter: Filter, info: Info) -> r
     }
     res = patch(f"/guilds/{guild_id}/roles/{role_id}", json=data)
     res = res.json()
-    role_and_guild_id_obj = role_and_guild_id(**res)
-    return role_and_guild_id_obj
+    return role_and_guild_id(**res)
 
 
 def delete_roles(guild_id: Text, role_id: Text) -> bool:

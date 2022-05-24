@@ -9,8 +9,7 @@ class all_channel(BaseModel):
 def get_channel(channel_id:Text) -> Channel:
     """获取子频道信息"""
     channel = get(f"/channels/{channel_id}")
-    channel_info = Channel(**channel)
-    return channel_info
+    return Channel(**channel)
 
 def get_guilds_all_channel(guild_id:Text) -> list[Channel]:
     """获取频道下的子频道列表"""

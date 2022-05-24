@@ -12,7 +12,7 @@ url1 = "https://api.sgroup.qq.com/users/@me/guilds"
 
 
 def UrlSplicing(url: Text, params: Text) -> Text:
-    return url + params[1:len(params)]
+    return url + params[1:]
 
 
 def get(url: Text, json: Any | None = None, data: Any | None = None, params: Any | None = None):
@@ -31,17 +31,14 @@ def post(url: Text, json: Any | None = None, data: Any | None = None, params: An
 
 def delete(url: Text, json: Any | None = None, data: Any | None = None, params: Any | None = None):
     url = UrlSplicing(Url, url)
-    res = s.delete(url=url, json=json, data=data, params=params)
-    return res
+    return s.delete(url=url, json=json, data=data, params=params)
 
 
 def put(url: Text, json: Any | None = None, data: Any | None = None, params: Any | None = None):
     url = UrlSplicing(Url, url)
-    res = s.put(url=url, json=json, data=data, params=params)
-    return res
+    return s.put(url=url, json=json, data=data, params=params)
 
 
 def patch(url: Text, json: Any | None = None, data: Any | None = None, params: Any | None = None):
     url = UrlSplicing(Url, url)
-    res = s.patch(url=url, json=json, data=data, params=params)
-    return res
+    return s.patch(url=url, json=json, data=data, params=params)
