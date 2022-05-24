@@ -16,8 +16,7 @@ class AudioControl:
         self.text = text
 
     def __request(self,data:Any):
-        res = post(f"/channels/{self.channel_id}/audio",json=data)
-        return res
+        return post(f"/channels/{self.channel_id}/audio",json=data)
     
     def start(self):
         """

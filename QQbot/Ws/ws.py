@@ -32,7 +32,7 @@ class wsc:
         ---
         进行登录
         """
-        if self.session == None:
+        if self.session is None:
             load = {
                 "op": 2,
                 "d": {
@@ -47,7 +47,7 @@ class wsc:
                 }
             }
         else:
-            logger.warning(f"分片掉线，进行重连")
+            logger.warning("分片掉线，进行重连")
             load = {
                 "op": 6,
                 "d": {
@@ -57,10 +57,10 @@ class wsc:
                 }
             }
         ws.send(json.dumps(load))
-        logger.info(f"发送链接信息")
+        logger.info("发送链接信息")
 
     def Heartbeat(self,event,ws):
-        logger.info(f"开始发送心跳")
+        logger.info("开始发送心跳")
         while self.Heartbeat:
             if not event.wait(self.heartbeat_interval):
                 data = {

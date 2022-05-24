@@ -41,7 +41,7 @@ class BOT:
         -------------
         发送初始化请求，查询Bot信息
         """
-        logger.info(f"正在验证BOT信息")
+        logger.info("正在验证BOT信息")
         self.BotInfo = getMe()
         MeGuilds = getMeGuilds()
         guild = len(MeGuilds)
@@ -51,7 +51,7 @@ class BOT:
         self.shard = sharddata.shards
         logger.info(
             f"消息地址：{sharddata.url}，推荐分片数：{sharddata.shards}，当前还可以链接{sharddata.session_start_limit.remaining}次")
-        logger.info(f"Bot将在5秒后启动")
+        logger.info("Bot将在5秒后启动")
         time.sleep(5)
 
     def ListenerImport(self):
@@ -114,7 +114,7 @@ class BOT:
         -----------
         在使用中难免出现错误导致线程退出，这个模块旨在监测退出的线程并且重启它们。
         """
-        tsd = Thread(target=self.__taskDr, name=f"tasksDocter")
+        tsd = Thread(target=self.__taskDr, name="tasksDocter")
         tsd.setDaemon = True
         tsd.start()
 
